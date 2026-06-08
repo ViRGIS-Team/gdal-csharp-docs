@@ -30,22 +30,22 @@ jobs:
           environment-name: docs
           create-args: >
             -c conda-forge
-            gdal-csharp
-            python
 
-      - name: Locate package source archive
-        id: prefix
+      - name: Install package only
         shell: pwsh
         run: |
-          $prefix = micromamba run -n docs python -c "import sys; print(sys.prefix)"
-          echo "PREFIX=$prefix" >> $env:GITHUB_ENV
+          micromamba install -n docs -c conda-forge --yes --no-deps gdal-csharp
 
-      - name: Extract C# sources
+      - name: Extract sources
         shell: pwsh
         run: |
+          $prefix = micromamba env list | Select-String 'docs' | ForEach-Object {
+            $_.ToString().Split()[-1]
+          }
+      
           Expand-Archive `
-            "$env:PREFIX\share\gdal\csharp-source.zip" `
-            "$env:GITHUB_WORKSPACE\src" `
+            "$prefix\share\gdal\csharp-source.zip" `
+            src `
             -Force
 
       - name: Setup .NET

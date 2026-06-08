@@ -3,9 +3,7 @@
     {
       "src": [
         {
-          "files": [
-            "src/**/*.csproj"
-          ]
+          "files": [ "src/docfx.csproj" ]
         }
       ],
       "dest": "api"

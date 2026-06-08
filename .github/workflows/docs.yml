@@ -1,0 +1,82 @@
+name: Build and Publish C# API Docs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-docs:
+    runs-on: windows-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Micromamba
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-name: docs
+          create-args: >
+            -c conda-forge
+            gdal-csharp
+            python
+
+      - name: Locate package source archive
+        id: prefix
+        shell: pwsh
+        run: |
+          $prefix = micromamba run -n docs python -c "import sys; print(sys.prefix)"
+          echo "PREFIX=$prefix" >> $env:GITHUB_ENV
+
+      - name: Extract C# sources
+        shell: pwsh
+        run: |
+          Expand-Archive `
+            "$env:PREFIX\share\gdal\csharp-source.zip" `
+            "$env:GITHUB_WORKSPACE\src" `
+            -Force
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install DocFX
+        shell: pwsh
+        run: |
+          dotnet tool update -g docfx
+          echo "$env:USERPROFILE\.dotnet\tools" >> $env:GITHUB_PATH
+
+      - name: Generate metadata
+        shell: pwsh
+        run: |
+          docfx metadata docfx.json
+
+      - name: Build site
+        shell: pwsh
+        run: |
+          docfx build docfx.json
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

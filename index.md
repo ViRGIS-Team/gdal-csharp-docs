@@ -1,6 +1,6 @@
 # GDAL C# API 
 
-Version : {{ VERSION }}
+Version : {{VERSION}}
 
 | Package   | Description     |
 | --------- |-----------------|

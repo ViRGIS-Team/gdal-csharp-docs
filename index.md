@@ -1,4 +1,6 @@
-# GDAL C# API
+# GDAL C# API 
+
+Version : {{ VERSION }}
 
 | Package   | Description     |
 | --------- |-----------------|

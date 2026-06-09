@@ -20,7 +20,10 @@
     ],
     "resource": [
       {
-        "files": [ "gdalicon.png" ]
+        "files": [ 
+          "gdalicon.png",
+          "favicon (1).ico"
+        ]
       }
     ],
     "template": [
@@ -29,7 +32,8 @@
     ],
     "globalMetadata": {
       "_appTitle": "GDAL C# API",
-      "_appLogoPath": "gdalicon.png"
+      "_appLogoPath": "gdalicon.png",
+      "_appFaviconPath": "favicon (1).ico"
     },
     "dest": "_site"
   }

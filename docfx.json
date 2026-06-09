@@ -18,6 +18,10 @@
         ]
       }
     ],
+    "template": [
+      "default",
+      "modern"
+    ]
     "dest": "_site"
   }
 }

@@ -22,6 +22,10 @@
       "default",
       "modern"
     ],
+    "globalMetadata": {
+      "_appTitle": "GDAL C# API",
+      "_appLogoPath": "GDALLogoColor.svg"
+    },
     "dest": "_site"
   }
 }

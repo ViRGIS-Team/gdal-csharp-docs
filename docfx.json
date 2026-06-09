@@ -13,8 +13,8 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
+          "**.yml",
+          "index.md"
         ]
       }
     ],

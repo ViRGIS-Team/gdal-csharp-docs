@@ -59,6 +59,17 @@ jobs:
           dotnet tool update -g docfx
           echo "$env:USERPROFILE\.dotnet\tools" >> $env:GITHUB_PATH
 
+      - name: Inject package version into index.md
+        shell: pwsh
+        run: |
+          $version = micromamba list -n docs gdal-csharp --json |
+            ConvertFrom-Json |
+            Select-Object -ExpandProperty version
+      
+          (Get-Content index.md -Raw) `
+            -replace '\{\{VERSION\}\}', $version |
+            Set-Content index.md
+
       - name: Generate metadata
         shell: pwsh
         run: |

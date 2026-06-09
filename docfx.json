@@ -34,7 +34,7 @@
       "_appTitle": "GDAL C# API",
       "_appLogoPath": "gdalicon.png",
       "_appFaviconPath": "favicon (1).png",
-      "_appFooter": "All logos and API contents ©️ GDAL contributors - see <A href="https://github.com/OSGeo/gdal/blob/master/LICENSE.TXT" >GDAL licence for details</A>"
+      "_appFooter": "All logos and API contents ©️ GDAL contributors - see <A href=\"https://github.com/OSGeo/gdal/blob/master/LICENSE.TXT\" >GDAL licence for details</A>"
     },
     "dest": "_site"
   }

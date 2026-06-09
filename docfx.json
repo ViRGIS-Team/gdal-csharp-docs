@@ -22,7 +22,7 @@
       {
         "files": [ 
           "gdalicon.png",
-          "favicon (1).ico"
+          "favicon (1).png"
         ]
       }
     ],
@@ -33,7 +33,7 @@
     "globalMetadata": {
       "_appTitle": "GDAL C# API",
       "_appLogoPath": "gdalicon.png",
-      "_appFaviconPath": "favicon (1).ico"
+      "_appFaviconPath": "favicon (1).png"
     },
     "dest": "_site"
   }

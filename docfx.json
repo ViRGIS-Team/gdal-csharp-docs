@@ -34,6 +34,7 @@
       "_appTitle": "GDAL C# API",
       "_appLogoPath": "gdalicon.png",
       "_appFaviconPath": "favicon (1).png"
+      "_appFooter": "all logos and API contents ©️ GDAL contributors - see GDAL documentation for details"
     },
     "dest": "_site"
   }

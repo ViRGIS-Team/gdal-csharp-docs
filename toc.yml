@@ -1,3 +1,7 @@
 # toc.yml
-- name: API
-  href: api/
+- name: GDAL
+  href: api/OSGeo.GDAL.html
+- name: OGR
+  href: api/OSGeo.OGR.html
+- name: OSR
+  href: api/OSGeo.OSR.html

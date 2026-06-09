@@ -62,7 +62,7 @@ jobs:
       - name: Inject package version into index.md
         shell: pwsh
         run: |
-          $version = micromamba list -n docs libgdal --json | ConvertFrom-Json | Select-Object -ExpandProperty version
+          $version = micromamba list -n docs libgdal-core --json | ConvertFrom-Json | Select-Object -ExpandProperty version
       
           (Get-Content index.md -Raw) `
             -replace '\{\{VERSION\}\}', $version |

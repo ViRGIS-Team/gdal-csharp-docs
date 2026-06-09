@@ -16,8 +16,9 @@
           "**.yml",
           "index.md"
         ]
-      },
-          "resource": [
+      }
+    ],
+    "resource": [
       {
         "files": [ "GDALLogoColor.svg" ]
       }

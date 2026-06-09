@@ -62,7 +62,7 @@ jobs:
       - name: Inject package version into index.md
         shell: pwsh
         run: |
-          $version = micromamba list -n docs gdal-csharp --json |
+          $version = micromamba list -n docs gdal --json |
             ConvertFrom-Json |
             Select-Object -ExpandProperty version
       

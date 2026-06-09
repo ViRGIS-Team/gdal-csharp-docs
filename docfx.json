@@ -20,7 +20,7 @@
     ],
     "resource": [
       {
-        "files": [ "GDALLogoColor.svg" ]
+        "files": [ "gdalicon.png" ]
       }
     ],
     "template": [
@@ -29,7 +29,7 @@
     ],
     "globalMetadata": {
       "_appTitle": "GDAL C# API",
-      "_appLogoPath": "GDALLogoColor.svg"
+      "_appLogoPath": "gdalicon.png"
     },
     "dest": "_site"
   }

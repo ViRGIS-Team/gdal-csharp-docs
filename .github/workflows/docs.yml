@@ -34,7 +34,7 @@ jobs:
       - name: Install package only
         shell: pwsh
         run: |
-          micromamba install -n docs -c conda-forge --yes --no-deps gdal-csharp
+          micromamba install -n docs -c conda-forge --yes gdal-csharp
 
       - name: Extract sources
         shell: pwsh
@@ -62,11 +62,7 @@ jobs:
       - name: Inject package version into index.md
         shell: pwsh
         run: |
-          $version = (
-              micromamba -n docs repoquery depends gdal-csharp --tree |
-              Select-String 'libgdal\[([^\]]+)\]' |
-              Select-Object -First 1
-          ).Matches[0].Groups[1].Value
+          $version = micromamba list -n docs libgdal --json | ConvertFrom-Json | Select-Object -ExpandProperty version
       
           (Get-Content index.md -Raw) `
             -replace '\{\{VERSION\}\}', $version |

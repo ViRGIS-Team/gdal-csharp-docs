@@ -16,6 +16,10 @@
           "**.yml",
           "index.md"
         ]
+      },
+          "resource": [
+      {
+        "files": [ "GDALLogoColor.svg" ]
       }
     ],
     "template": [
@@ -24,7 +28,7 @@
     ],
     "globalMetadata": {
       "_appTitle": "GDAL C# API",
-      "_appLogoPath": "../GDALLogoColor.svg"
+      "_appLogoPath": "GDALLogoColor.svg"
     },
     "dest": "_site"
   }

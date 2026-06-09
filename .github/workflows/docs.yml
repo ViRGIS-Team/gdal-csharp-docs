@@ -63,7 +63,7 @@ jobs:
         shell: pwsh
         run: |
           $version = (
-              micromamba repoquery depends gdal-csharp --tree |
+              micromamba -n docs repoquery depends gdal-csharp --tree |
               Select-String 'libgdal\[([^\]]+)\]' |
               Select-Object -First 1
           ).Matches[0].Groups[1].Value
